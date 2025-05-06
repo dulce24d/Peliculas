@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-dark text-light">
+  <nav class="navbar navbar-dark bg-black px-4 mb-4">
+    <span class="navbar-brand mb-0 h1 text-pink">RomanceFlix</span>
+    <a href="login.html" class="btn btn-outline-light">Iniciar Sesión</a>
+  </nav>
+
+  <div class="card mx-auto" style="width: 400px;" id="register-card">
+    <h1 class="mb-4 text-center text-pink">Crear Cuenta</h1>
+    <form id="register-form" class="bg-white p-4 rounded">
+      <div class="mb-3">
+        <label for="user-input" class="form-label">Usuario:</label>
+        <input type="text" class="form-control" id="user-input" name="user" required>
+      </div>
+      <div class="mb-3">
+        <label for="email-input" class="form-label">Correo:</label>
+        <input type="email" class="form-control" id="email-input" name="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="password-input" class="form-label">Contraseña:</label>
+        <input type="password" class="form-control" id="password-input" name="contraseña" required>
+      </div>
+      <div class="mb-3">
+        <label for="role-input" class="form-label">Rol:</label>
+        <select class="form-control" id="role-input" name="role" required>
+          <option value="USER">Usuario</option>
+          <option value="ADMIN">Administrador</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-secondary">Registrarse</button>
+      <div id="mensaje" class="mt-3 text-center"></div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('register-form');
+    const mensaje = document.getElementById('mensaje');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const datos = new FormData(form);
+      const cuerpo = Object.fromEntries(datos.entries());
+
+      try {
+        const res = await fetch('/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(cuerpo)
+        });
+
+        const data = await res.json();
+        mensaje.innerText = data.mensaje;
+
+        if (res.ok) {
+          setTimeout(() => window.location.href = 'login.html', 1000);
+        }
+      } catch (err) {
+        mensaje.innerText = 'Error al registrar usuario.';
+        console.error(err);
+      }
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

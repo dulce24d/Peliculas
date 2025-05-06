@@ -1,0 +1,106 @@
+body {
+    background-color: #121212;
+    color: #fce4ec;
+  }
+  
+  .text-pink {
+    color: #ff69b4;
+  }
+  
+  .card {
+    background-color: #1e1e1e;
+    color: #fce4ec;
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 10px #ff69b4aa;
+  }
+  
+  .card-img-top {
+    height: 300px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  
+  .navbar {
+    background-color: #000000 !important;
+  }
+  
+  .card-title {
+    color: #ff69b4;
+  }
+  #login-card{
+    background-color: #ffffff;
+    color: #a85370;
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.2s ease;
+  }
+  #register-card{
+    background-color: #ffffff;
+    color: #a85370;
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.2s ease;
+  }
+  #username-input, #password-input {
+    background-color: #fce4ec;
+    color: #000000;
+    border: none;
+    border-radius: 5px 0 0 5px;
+  }
+  .btn-outline-pink {
+    border-color: #ff69b4;
+    color: #ff69b4;
+  }
+  
+  .btn-outline-pink:hover {
+    background-color: #ff69b4;
+    color: #1e1e1e;
+    border-color: #ff69b4;
+  }
+  
+.editar-btn,
+.eliminar-btn {
+  display: none;
+}
+
+/* Muestra los botones solo si el usuario está autenticado */
+body.autenticado .editar-btn,
+body.autenticado .eliminar-btn {
+  display: inline-block;
+}
+
+/* Estilo opcional para los botones */
+.editar-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.eliminar-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-pink {
+  background-color: #ff69b4;
+  color: black;
+  border: none;
+}
+.btn-pink:hover {
+  background-color: #e055a5;
+  color: white;
+}
